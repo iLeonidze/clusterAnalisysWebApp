@@ -1,0 +1,243 @@
+body{
+    font-family: "San Francisco", "Arial", sans-serif;
+    font-size: 14px;
+    background: #2b2b2b;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+
+    overflow-x: hidden;
+}
+
+.top {
+    display: block;
+    width: 100%;
+    background: #3c3f41;
+    border-bottom: 1px solid #282828;
+    min-height: 300px;
+    padding-bottom: 30px;
+}
+
+.bottom {
+    display: block;
+    width: 100%;
+    background: #2b2b2b;
+}
+
+.initialMatrix {
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 50px;
+    height: auto;
+    width: 60%;
+}
+
+.initialMatrix .name, .analysisResults .name, .analysisProccessBox h1 {
+    font-weight: bold;
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.46);
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    color: #fff;
+    border-collapse: collapse;
+}
+
+thead {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.47);
+}
+
+tbody {
+    color: #fff;
+}
+tbody tr, tbody td {
+    height: 26px;
+}
+tbody tr:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.09);
+}
+
+.initialMatrix .name .contents, .initialMatrix .name .contents .name, .initialMatrix .name .contents .field , .initialMatrix .name .contents input {
+    display: inline-block;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.87);
+    font-size: 14px;
+    line-height: 14px;
+    height: 14px;
+    margin-bottom: 0;
+}
+
+.initialMatrix .name .contents input {
+    width: 30px;
+    line-height: 14px;
+    height: 14px;
+    margin-left: 10px;
+    color: black;
+}
+
+.analysisResults {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 30%;
+    display: block;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.analysisResults .contents .output{
+    display: block;
+    background: #fff;
+    width: 96%;
+    height: auto;
+    min-height: 150px;
+    color: #000;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.analysisProccessBoxContainer {
+    display: block;
+    width: 100%;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#262626+0,2b2b2b+100 */
+    background: #262626; /* Old browsers */
+    background: -moz-linear-gradient(top, #262626 0%, #2b2b2b 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #262626 0%,#2b2b2b 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #262626 0%,#2b2b2b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#262626', endColorstr='#2b2b2b',GradientType=0 ); /* IE6-9 */
+}
+
+.analysisProccessBox {
+    display: block;
+    width: 100%;
+    padding-bottom: 30px;
+    padding-top: 50px;
+    padding-left: 50px;
+}
+
+.bottom table {
+    /*table-layout: fixed;*/
+}
+
+.bottom table .naming {
+    width: 100px!important;
+}
+
+.analysisProccessBox h1 {
+    font-weight: 100;
+}
+
+.analysisProccessBox h2 {
+    font-weight: 100;
+    color: #fff;
+}
+
+.analysisProccessBox .contents {
+    /*height: 300px;*/
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.analysisProccessBox .contents .section {
+    width: 33.32%
+}
+
+.analysisProccessBox .contents .section {
+    display: inline-block;
+
+    width: 29%;
+
+    background: rgba(0, 0, 0, 0.37);
+    padding: 1%;
+    margin-left: -1%;
+    margin-right: 2%;
+
+    border-radius: 20px;
+
+    overflow: auto;
+
+}
+
+.analysisProccessBox .contents .section h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    opacity: .5;
+    text-align: right;
+}
+
+.bottom table thead td {
+    font-size: 14px;
+    color: #fff;
+    height: 26px;
+}
+
+.button {
+    color: #fff;
+    transition: .1s ease-out;
+    background: rgba(0, 0, 0, 0.44);
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-left: 10px;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 24px -12px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 24px -12px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 24px -12px rgba(0, 0, 0, 0.75);
+    opacity: .9;
+}
+.button:hover {
+    transition: .2s ease-out;
+    transform: scale(1.05);
+    opacity: 1;
+}
+.button:active {
+    transition: .1s ease-out;
+    transform: scale(0.95);
+    opacity: .6;
+}
+
+.windowOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    visibility: visible;
+}
+.windowOverlay.hidden {
+    visibility: hidden;
+}
+.windowOverlay .window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 900px;
+    height: 600px;
+    margin: -300px 0 0 -450px;
+    background: rgb(43, 43, 43);
+    z-index: 999;
+}
+.windowOverlay .window textarea {
+    width: 98%;
+    height: 86%;
+    margin: 0;
+    padding: 1%;
+    border: none;
+    outline: none;
+}
+.windowOverlay .window .panel {
+    height: 10%;
+    width: 98%;
+    padding: 1%;
+}
+.windowOverlay .window .panel .button {
+    display: inline-block;
+    float: right;
+    transform: none!important;
+    margin-top: 4px;
+    margin-right: 4px;
+}

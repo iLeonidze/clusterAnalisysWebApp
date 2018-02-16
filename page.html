@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cluster Analysis App @ Leonid Fedotov / 2018 MIIT</title>
+
+    <link href="styles.css" rel="stylesheet">
+
+    <script type="text/javascript" src="libs/jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript" src="processor.js"></script>
+    <script type="text/javascript" src="ui.js"></script>
+
+</head>
+<body>
+
+    <div class="top">
+        <div class="initialMatrix block">
+            <div class="name">
+                Матрица измерений
+                <div class="contents">
+                    <div class="name">Количество записей</div>
+                    <div class="field">
+                        <input name="recordsLength" id="recordsLength" type="number" min="2" max="99" step="1" value="99" onchange="ui.redrawTables(data, axis, $('#parametersLength').val(), this.value);" />
+                    </div>
+                </div>
+                <div class="contents">
+                    <div class="name">Количество параметров</div>
+                    <div class="field">
+                        <input name="parametersLength" id="parametersLength" type="number" min="2" max="99" step="1" value="99" onchange="ui.redrawTables(data, axis, this.value, $('#recordsLength').val());" />
+                    </div>
+                </div>
+                <div class="contents">
+                    <div class="button" onmousedown="ui.showWindowWithMatrix([data,axis]);">Изменить даннные</div>
+                </div>
+            </div>
+            <div class="contents" id="initialMatrixContents">
+                <table id="initialMatrixContentsTable"></table>
+            </div>
+        </div>
+        <div class="analysisResults block">
+            <div class="name">
+                Результат класт. анализа
+            </div>
+            <div class="contents">
+                <div class="output" id="clusterAnalysisResultOutput">
+                    Нет результата
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom" id="bottomContainer"></div>
+    <div class="windowOverlay hidden" id="windowOverlay">
+        <div class="window">
+            <textarea class="code" id="tableCode"></textarea>
+            <div class="panel">
+                <div class="button" onmousedown="ui.applyMatrixFromWindow($('#tableCode').val(), function(d){ data = d[0]; axis = d[1]; ui.redrawTables(data, axis, $('#parametersLength').val(), $('#recordsLength').val()); });">Сохранить</div>
+                <div class="button" onmousedown="ui.applyMatrixFromWindow(null);">Отменить</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var variantNumber = 4;
+        var variantName = "Студенческий состав";
+        var horizontalAxisDefaultSize = 6;
+        var verticalAxisDefaultSize = 6;
+        /*var data = [
+            ["Иванов",    165,  65,  18,  70,  "Среднее"],
+            ["Петров",    182,  112, 65,  142, "Уч. степень"],
+            ["Сидоров",   169,  95,  27,  100, "Высшее"],
+            ["Степанов",  176,  74,  32,  94,  "Высшее"],
+            ["Федоров",   189,  82,  40,  82,  "Среднее"],
+            ["Яковлев",   178,  87,  43,  87,  "Уч. степень"],
+            ["Соловьев",  166,  80,  22,  80,  "Высшее"],
+            ["Васильев",  200,  66,  30,  101, "Высшее"],
+            ["Крылов",    181,  77,  19,  120, "Высшее"],
+            ["Жуков",     173,  92,  21,  75,  "Высшее"],
+            ["Киселев",   177,  80,  26,  79,  "Высшее"],
+            ["Щербаков",  168,  101, 37,  86,  "Уч. степень"],
+            ["Фадеев",    210,  69,  58,  87,  "Уч. степень"],
+            ["Лихачев",   192,  99,  53,  65,  "Уч. степень"],
+            ["Агафонов",  178,  120, 72,  111, "Уч. степень"],
+            ["Евдакимов", 195,  75,  24,  87,  "Высшее"]
+        ];*/
+        var data = [
+            ["Иванов",    171,  66,  54,  116,  "Среднее"],
+            ["Петров",    173,  85, 28,  87, "Уч. степень"],
+            ["Сидоров",   166,  81,  30,  84, "Высшее"],
+            ["Степанов",  179,  74,  24,  83,  "Высшее"],
+            ["Федоров",   162,  80,  52,  119,  "Среднее"],
+            ["Яковлев",   178,  87,  43,  87,  "Среднее"]
+        ];
+        var axis = [
+            "Фамилия", "Рост (см)", "Вес (кг)", "Возраст (лет)", "Уровень интеллекта (IQ)", "Образование"
+        ];
+        window.onload = function(){
+            ui.init(variantNumber, variantName, data, axis, horizontalAxisDefaultSize, verticalAxisDefaultSize);
+        }
+    </script>
+</body>
+</html>

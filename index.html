@@ -54,7 +54,7 @@
         <div class="window">
             <textarea class="code" id="tableCode"></textarea>
             <div class="panel">
-                <div class="button" onmousedown="ui.applyMatrixFromWindow($('#tableCode').val(), function(d){ data = d[0]; axis = d[1]; ui.redrawTables(data, axis, $('#parametersLength').val(), $('#recordsLength').val()); });">Сохранить</div>
+                <div class="button" onmousedown="ui.applyMatrixFromWindow($('#tableCode').val(), function(d){ data = d[0]; axis = d[1]; ui.initTable(data, axis, $('#parametersLength').val(), $('#recordsLength').val()); });">Сохранить</div>
                 <div class="button" onmousedown="ui.applyMatrixFromWindow(null);">Отменить</div>
             </div>
         </div>

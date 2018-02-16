@@ -12,9 +12,11 @@ var ui = {
 
     },
     initTable : function (d, x, l, s) {
-        $("#parametersLength").attr("max", x.length).val(l);
-        $("#recordsLength").attr("max", d.length).val(s);
-        ui.redrawTables(d, x, l, s);
+        var q = x.length < l ? x.length : l;
+        var w = d.length < s ? d.length : s;
+        $("#parametersLength").attr("max", x.length).val(q);
+        $("#recordsLength").attr("max", d.length).val(w);
+        ui.redrawTables(d, x, q, w);
     },
     redrawTables : function (d, x, l, s) {
         console.log("Redrawing table", d, x, l, s);

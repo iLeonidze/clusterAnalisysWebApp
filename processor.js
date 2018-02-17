@@ -52,27 +52,22 @@ var processor = {
     },
     countSpanningTree : function (d) {
 
-        function f (a, p, l) {
-            a[p][1]++;
-            if (a[p][1] > 1) { // DO NOT TOUCH THIS RED BUTTON!
-                return false;
-            }
-            for (var i = 0; i < a[p][0].length; i++) {
-                if (a[p][0][i] !== l) {
-                    if (!f(a, a[p][0][i], p)) return false;
-                }
-            }
-            return true;
-        }
-
         function c (a, x, y) {
             var t = [];
+            console.log("----- Соединение "+x+" с "+y+" в пуле "+JSON.stringify(a)+" и сброшенным временным пулом "+JSON.stringify(t));
             for (var i = 0; i < a.length; i++) { // this is a dirty hack to copy array to memory
-                t.push([a[i], 0]);
+                console.log("Помещаем во временнный пул значение "+JSON.stringify(a[i]));
+                var m = [];
+                for (var j = 0; j < a[i].length; j++) { // this is a dirty hack too
+                    m.push(a[i][j]);
+                }
+                t.push([m, 0]);
             }
-            t[x].push(y);
-            t[y].push(x); // has we to do this?
-            return f (t, x, null);
+            console.log("Временный пул до изменнения "+JSON.stringify(t));
+            if (t[x][0].indexOf(y) === -1) t[x][0].push(y);
+            if (t[y][0].indexOf(x) === -1) t[y][0].push(x); // has we to do this?
+            console.log("----- Временный пул "+JSON.stringify(t));
+            return kruskala (t, x, null);
         }
 
         console.log("Counting spanning tree with data", d);
@@ -141,3 +136,19 @@ var processor = {
         return m;
     }
 };
+
+function kruskala (a, p, l) {
+    console.log("Проверка точки "+p+" (из "+l+") "+JSON.stringify(a[p])+" из пула "+JSON.stringify(a));
+    a[p][1]++;
+    console.log("Точка имеет вес ", a[p][1]);
+    if (a[p][1] > 1) { // DO NOT TOUCH THIS RED BUTTON!
+        console.log("Вес превышен");
+        return false;
+    }
+    for (var i = 0; i < a[p][0].length; i++) {
+        if (a[p][0][i] !== l) {
+            if (!kruskala (a, a[p][0][i], p)) return false;
+        }
+    }
+    return true;
+}

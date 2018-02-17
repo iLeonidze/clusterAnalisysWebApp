@@ -6,6 +6,7 @@
 
     <link href="styles.css" rel="stylesheet">
 
+    <script src="http://d3js.org/d3.v3.min.js"></script>
     <script type="text/javascript" src="libs/jquery-3.3.1.min.js"></script>
 
     <script type="text/javascript" src="processor.js"></script>
@@ -63,9 +64,9 @@
     <script>
         var variantNumber = 4;
         var variantName = "Студенческий состав";
-        var horizontalAxisDefaultSize = 6;
-        var verticalAxisDefaultSize = 6;
-        /*var data = [
+        var horizontalAxisDefaultSize = 4; //6
+        var verticalAxisDefaultSize = 4; //6
+        var data = [
             ["Иванов",    165,  65,  18,  70,  "Среднее"],
             ["Петров",    182,  112, 65,  142, "Уч. степень"],
             ["Сидоров",   169,  95,  27,  100, "Высшее"],
@@ -82,15 +83,15 @@
             ["Лихачев",   192,  99,  53,  65,  "Уч. степень"],
             ["Агафонов",  178,  120, 72,  111, "Уч. степень"],
             ["Евдакимов", 195,  75,  24,  87,  "Высшее"]
-        ];*/
-        var data = [
+        ];
+        /*var data = [
             ["Иванов",    171,  66,  54,  116,  "Среднее"],
             ["Петров",    173,  85, 28,  87, "Уч. степень"],
             ["Сидоров",   166,  81,  30,  84, "Высшее"],
             ["Степанов",  179,  74,  24,  83,  "Высшее"],
             ["Федоров",   162,  80,  52,  119,  "Среднее"],
             ["Яковлев",   178,  87,  43,  87,  "Среднее"]
-        ];
+        ];*/
         var axis = [
             "Фамилия", "Рост (см)", "Вес (кг)", "Возраст (лет)", "Уровень интеллекта (IQ)", "Образование"
         ];

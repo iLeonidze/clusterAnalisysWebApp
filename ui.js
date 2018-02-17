@@ -130,8 +130,8 @@ var ui = {
         for(var i = 0; i < d.length; i++) {
             for(var j = 0; j < d[i].length; j++) {
                 links.push({
-                    target : i, //a[i],
-                    source : j, //a[j],
+                    target : a[i],
+                    source : a[j],
                     value : d[i][j] / 50, // !!!! fix that
                     type : t[i][j] !== 0
                 });

@@ -97,7 +97,7 @@ var ui = {
                 spanningTreeContents += rawString;
             }
 
-            $("#bottomContainer").append("<div class='analysisProccessBoxContainer'><div class='analysisProccessBox'><h1>Кластерный анализ для \""+horizontalAxis[i]+"\"</h1><div class='contents'><div class='section distances'><h2>Матрица расстояний</h2><table><thead><tr><td></td><td>"+verticalAxis.join("</td><td>")+"</td></tr></thead><tbody>"+distancesTableContents+"</tbody></table></div><div class='section spanningTree'><h2>Матрица остовного дерева</h2><table><thead><tr><td></td><td>"+verticalAxis.join("</td><td>")+"</td></tr></thead><tbody>"+spanningTreeContents+"</tbody></table></div><div class='section'></div></div><div class='visualization'><div id='vis"+i+"'></div></div></div></div>")
+            $("#bottomContainer").append("<div class='analysisProccessBoxContainer'><div class='analysisProccessBox'><h1>Кластерный анализ для \""+horizontalAxis[i]+"\"</h1><div class='contents'><div class='section distances'><h2>Матрица расстояний</h2><table><thead><tr><td></td><td>"+verticalAxis.join("</td><td>")+"</td></tr></thead><tbody>"+distancesTableContents+"</tbody></table></div><div class='section spanningTree'><h2>Матрица остовного дерева</h2><table><thead><tr><td></td><td>"+verticalAxis.join("</td><td>")+"</td></tr></thead><tbody>"+spanningTreeContents+"</tbody></table></div></div></div><div class='analysisProccessBox noTopPadding'><div class='visualization'><div id='vis"+i+"'></div></div></div></div>")
 
             this.drawSpanningTree(distancesMatrix, spanningTree, verticalAxis, i);
 
@@ -151,7 +151,7 @@ var ui = {
         var width  = $(".analysisProccessBox .visualization").width(),
             height = $(".analysisProccessBox .visualization").height();
 
-        var factor = 200;
+        var factor = 20;
         var force = d3.layout.force()
             .nodes(d3.values(nodes))
             .links(links)

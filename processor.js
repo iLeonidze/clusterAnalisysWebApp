@@ -75,7 +75,7 @@ var processor = {
         var s = this.makeSpanningSides(d);
 
         console.log("Counted spanning sides [from, to, weight]", s);
-        var m = this.makeFilledMatrix(d, 0);
+        var m = this.makeFilledMatrix(d, "");
 
         var x = [];
         var u = 0;

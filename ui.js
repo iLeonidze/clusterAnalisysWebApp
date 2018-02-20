@@ -132,8 +132,8 @@ var ui = {
                 links.push({
                     target : a[i],
                     source : a[j],
-                    value : d[i][j] / 50, // !!!! fix that
-                    type : t[i][j] !== 0
+                    value : d[i][j] !== "" ? d[i][j] / 50 : 0, // !!!! fix that
+                    type : t[i][j] !== ""
                 });
             }
         }
